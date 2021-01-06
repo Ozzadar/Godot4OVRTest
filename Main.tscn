@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[node name="Main" type="Node3D"]
+script = ExtResource( 1 )
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+xr = true
+size = Vector2i( 1920, 1080 )
+render_target_update_mode = 3
+script = null
+
+[node name="XROrigin3D" type="XROrigin3D" parent="SubViewport"]
+script = null
+
+[node name="XRCamera3D" type="XRCamera3D" parent="SubViewport/XROrigin3D"]
+script = null
+
+[node name="XRController3D" type="XRController3D" parent="SubViewport/XROrigin3D"]
+script = null
+
+[node name="XRController3D2" type="XRController3D" parent="SubViewport/XROrigin3D"]
+controller_id = 2
+script = null
