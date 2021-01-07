@@ -1,12 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 20, 20 )
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 20, 20 )
+
+[sub_resource type="BoxMesh" id=2]
+size = Vector3( 1, 1, 1 )
 
 [node name="Main" type="Node3D"]
 script = ExtResource( 1 )
 
 [node name="SubViewport" type="SubViewport" parent="."]
-own_world_3d = true
 xr = true
 size = Vector2i( 1920, 1080 )
 render_target_update_mode = 3
@@ -23,4 +31,26 @@ script = null
 
 [node name="XRController3D2" type="XRController3D" parent="SubViewport/XROrigin3D"]
 controller_id = 2
+script = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport"]
+mesh = SubResource( 3 )
+material/0 = null
+script = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393389, -0.929602, -0.164768 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+script = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform( 0.776783, -0.193208, 0.599398, 0, 0.951777, 0.306792, -0.629768, -0.238311, 0.739324, 2.39209, 1.53003, 3.07445 )
+script = null
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23681, 0.408857, 0 )
+mesh = SubResource( 2 )
+material/0 = null
 script = null
